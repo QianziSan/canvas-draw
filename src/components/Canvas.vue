@@ -4,8 +4,9 @@
       <span>{{msg}}</span>
       <a @touchstart="clear" @mousedown="clear">清屏</a>
       <a @touchstart="download" @mousedown="download">下载</a>
+      <a @touchstart="setPenColor('red')" @mousedown="setPenColor('red')">红色</a>
       <select v-model="degree">
-        <option v-for="item in scope" :value="item.value">{{item.title}}</option>
+        <option v-for="item in scope" :value="item.value" :key="item.number">{{item.title}}</option>
       </select>
     </div>
     <canvas></canvas>
@@ -92,6 +93,10 @@ export default {
     },
     download() {
       this.draw.downloadPNGImage(this.draw.getPNGImage());
+    },
+    setPenColor(color) {
+      console.log(color);
+      this.draw.setcolor(color);
     },
     upload() {
       const image = this.draw.getPNGImage();

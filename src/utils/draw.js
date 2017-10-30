@@ -210,6 +210,10 @@ Draw.prototype = {
     }
     this.context.clearRect(0, 0, width, height);
   },
+  setcolor(color) {    
+    this.context.strokeStyle = color;
+    this.context.shadowColor = color;
+  },
   upload(blob, url, success, failure) {
     const formData = new FormData();
     const xhr = new XMLHttpRequest();
